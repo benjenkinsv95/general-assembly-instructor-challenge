@@ -1,3 +1,9 @@
+# Design notes
+Search requires a submit button so that I don't overload the movie REST API.
+
+I only get 1000 queries for day, so I can't query it when the user types.
+
+
 ![GA Logo](https://raw.github.com/generalassembly/ga-ruby-on-rails-for-devs/master/images/ga.png)
 
 ## WDI Instructor Code Challenge

@@ -19,7 +19,8 @@ app.get('/favorites', function(req, res) {
 
 // Save a new favorited movie
 app.post('/favorites', function(req, res){
-  if(!req.body.name || !req.body.oid) {
+  if(!req.body.Title || !req.body.imdbID) {
+      res.status(500);
       res.send("Error");
       return;
   }
@@ -35,7 +36,35 @@ app.post('/favorites', function(req, res){
 
   // Return the updated favorited moviews
   res.setHeader('Content-Type', 'application/json');
-  res.send(favoritedMovies);
+  res.send(JSON.stringify(favoritedMovies));
+});
+
+// Delete an unfavorited movie
+// Contains a decent amount of duplication with previous method which could be removed by passing a
+// function in to edit (add/delete) an element. Advanced students might try that!
+app.post('/favorites/delete', function(req, res){
+    if(!req.body.Title || !req.body.imdbID) {
+        res.status(500);
+        res.send("Error");
+        return;
+    }
+
+    // Load favorites
+    var favoritedMovies = JSON.parse(fs.readFileSync('./favorited-movies.json'));
+
+    // Remove favorite if it exists
+    var favoriteMovie = favoritedMovies.find(favoriteMovie => favoriteMovie.imdbID === req.body.imdbID);
+    if (favoriteMovie) {
+      let index = favoritedMovies.indexOf(favoriteMovie);
+      favoritedMovies.splice(index, 1);
+    }
+
+    // Save updated favorited movies
+    fs.writeFile('./favorited-movies.json', JSON.stringify(favoritedMovies));
+
+    // Return the updated favorited moviews
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(favoritedMovies));
 });
 
 app.listen(3000, function(){
