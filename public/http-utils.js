@@ -1,3 +1,5 @@
+const ASYNCHRONOUS = true;
+
 // Perform an http get using pure javascript
 // https://stackoverflow.com/questions/247483/http-get-request-in-javascript
 function httpGetAsync(theUrl, callback) {

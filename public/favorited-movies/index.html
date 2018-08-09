@@ -2,32 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--Title in browser tab-->
-    <title>Movie Searcher</title>
+    <title>Favorited Movies</title>
 
     <!--Loading bootstrap for a default style-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
 </head>
 <body>
 
 <!--Container is a bootstrap style which centers the following content-->
 <div class="container">
-    <h1>Movie Searcher</h1>
-    <div>
-        <input id="movieTitle" type="text" placeholder="Enter a movie name...">
-        <button onclick="fetchAndUpdateMovies()">Search</button>
-    </div>
-
-    <a href="favorited-movies">Favorite Movies</a>
+    <h1>Favorited Movies</h1>
+    <a href="/">Movie Searcher</a>
 
     <div id="movies"></div>
 </div>
 
-
-<script src="utils.js"></script>
-<script src="http-utils.js"></script>
+<script src="../utils.js"></script>
+<script src="../http-utils.js"></script>
 <script src="index.js"></script>
 </body>
 </html>
