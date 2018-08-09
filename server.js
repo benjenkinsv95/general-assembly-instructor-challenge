@@ -67,6 +67,6 @@ app.post('/favorites/delete', function(req, res){
     res.send(JSON.stringify(favoritedMovies));
 });
 
-app.listen(8080, function(){
-  console.log("Listening on port 8080");
+app.listen(3500, function(){
+  console.log("Listening on port 3500");
 });
